@@ -1,11 +1,71 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #1f3c88, #39a2db);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #1a1a1a;
+    --tag-bg: #1f3c88;
+}
+
+body.dark-mode {
+    --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --card-bg: rgba(30, 30, 30, 0.9);
+    --text-color: #ffffff;
+    --tag-bg: #39a2db;
+}
+
 body {
-    background-color: #f8f9fa;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-color);
+    transition: all 0.4s ease;
 }
 
 .card {
-    border-radius: 12px;
+    border-radius: 18px;
+    border: none;
+    backdrop-filter: blur(12px);
+    background: var(--card-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
-.card-title {
-    font-weight: 600;
+.card-body,
+.card-title,
+.card-text,
+.card small {
+    color: var(--text-color) !important;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.badge {
+    background-color: var(--tag-bg) !important;
+    font-weight: 500;
+}
+
+h1 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+body.dark-mode h1 {
+    color: #ffffff;
+}
+
+#loadingSpinner p {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 14px;
 }

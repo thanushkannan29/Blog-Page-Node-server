@@ -1,4 +1,4 @@
-// Automatically call API when page loads
+
 document.addEventListener("DOMContentLoaded", function () {
     callAPI();
 });
@@ -39,7 +39,7 @@ function addBlogDataToPage(posts) {
             <div class="card h-100 shadow-sm">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">${post.title}</h5>
-                    <p class="card-text">${post.body.substring(0, 120)}...</p>
+                    <p class="card-text">${post.body}</p>
 
                     <div class="mb-2">
                         ${post.tags.map(tag => 
@@ -60,4 +60,19 @@ function addBlogDataToPage(posts) {
 
         container.appendChild(col);
     });
+}
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+
+    const btn = document.querySelector(".theme-toggle");
+
+    if (document.body.classList.contains("dark-mode")) {
+        btn.innerHTML = "☀ Light Mode";
+        btn.classList.remove("btn-light");
+        btn.classList.add("btn-dark");
+    } else {
+        btn.innerHTML = "🌙 Dark Mode";
+        btn.classList.remove("btn-dark");
+        btn.classList.add("btn-light");
+    }
 }
